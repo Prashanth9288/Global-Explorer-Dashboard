@@ -1,70 +1,191 @@
-# Getting Started with Create React App
+Installation
+Clone the repository
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+bash
+git clone <repository-url>
+cd global-explorer-dashboard
+Install dependencies
 
-## Available Scripts
+bash
+npm install
+Set up environment variables
+Create a .env file in the root directory:
 
-In the project directory, you can run:
+env
+REACT_APP_OPENWEATHER_API_KEY=demo_weather_key
+REACT_APP_NEWS_API_KEY=demo_news_key
+Run the application
 
-### `npm start`
+bash
+npm start
+The app will open in your browser at http://localhost:3000
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+📁 Project Structure
+text
+src/
+├── components/
+│   ├── common/
+│   │   ├── Header.jsx
+│   │   ├── SearchBar.jsx
+│   │   ├── Filter.jsx
+│   │   ├── Pagination.jsx
+│   │   └── LoadingSpinner.jsx
+│   ├── country/
+│   │   ├── CountryCard.jsx
+│   │   ├── CountryList.jsx
+│   │   └── CountryDetails.jsx
+│   └── weather/
+│       └── WeatherWidget.jsx
+├── pages/
+│   ├── Home.jsx
+│   ├── CountryDetailsPage.jsx
+│   └── Favorites.jsx
+├── services/
+│   ├── countriesAPI.js
+│   ├── weatherAPI.js
+│   └── newsAPI.js
+├── hooks/
+│   ├── useCountries.js
+│   ├── useFavorites.js
+│   └── useTheme.js
+├── context/
+│   └── ThemeContext.js
+├── utils/
+│   ├── constants.js
+│   └── helpers.js
+├── styles/
+│   └── App.css
+├── App.js
+└── index.js
+🔑 API Configuration
+For Demo Mode
+The app works perfectly with demo keys:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+env
+REACT_APP_OPENWEATHER_API_KEY=demo_weather_key
+REACT_APP_NEWS_API_KEY=demo_news_key
+For Full Functionality
+Get real API keys from:
 
-### `npm test`
+OpenWeatherMap: https://openweathermap.org/api
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+NewsAPI: https://newsapi.org/
 
-### `npm run build`
+Replace the demo keys in your .env file with your actual API keys.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+🎯 Available Scripts
+bash
+# Start development server
+npm start
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Build for production
+npm run build
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Run tests
+npm test
 
-### `npm run eject`
+# Eject from Create React App (irreversible)
+npm run eject
+🌐 APIs Used
+REST Countries API: https://restcountries.com/
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+OpenWeatherMap API: https://openweathermap.org/api
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+NewsAPI: https://newsapi.org/
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+🎨 Features Overview
+Home Page
+Search countries by name or capital
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Filter by region (Africa, Americas, Asia, Europe, Oceania)
 
-## Learn More
+Sort by population, name, or area
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Paginated results (12 countries per page)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Country Details Page
+Complete country information
 
-### Code Splitting
+Current weather in capital city
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Latest news headlines
 
-### Analyzing the Bundle Size
+Interactive map links
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Favorite functionality
 
-### Making a Progressive Web App
+Favorites Page
+Persistent favorite countries
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Easy add/remove functionality
 
-### Advanced Configuration
+Empty state with call-to-action
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+🔧 Customization
+Adding New Features
+Create new components in src/components/
 
-### Deployment
+Add new pages in src/pages/
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Extend API services in src/services/
 
-### `npm run build` fails to minify
+Styling
+The app uses CSS custom properties for theming. Modify variables in src/styles/App.css:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+css
+:root {
+  --primary-color: #2563eb;
+  --background-color: #ffffff;
+  --text-color: #1e293b;
+}
+🐛 Troubleshooting
+Common Issues
+API Errors
+
+The app uses demo data as fallback when APIs fail
+
+Check browser console for specific error messages
+
+Build Failures
+
+Ensure all dependencies are installed: npm install
+
+Check for syntax errors in component files
+
+Environment Variables
+
+Restart development server after adding .env file
+
+Ensure variable names start with REACT_APP_
+
+Browser Support
+Chrome (latest)
+
+Firefox (latest)
+
+Safari (latest)
+
+Edge (latest)
+
+🤝 Contributing
+Fork the repository
+
+Create a feature branch
+
+Commit your changes
+
+Push to the branch
+
+Create a Pull Request
+
+📄 License
+This project is licensed under the MIT License.
+
+🙏 Acknowledgments
+REST Countries for country data
+
+OpenWeatherMap for weather API
+
+NewsAPI for news data
+
+React Team for the amazing framework

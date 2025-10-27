@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { countriesAPI } from '../services/countriesAPI';
 
-// Mock data as fallback
+
 const mockCountries = [
   {
     name: { common: 'United States', official: 'United States of America' },
